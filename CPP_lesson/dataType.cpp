@@ -1,49 +1,57 @@
-// DataType of CPP
+// Datatype of CPP
 #include <iostream>
 #include <string>
+#include <iomanip>
+
+#define CHAR_INPUT_MAX 11
 using namespace std;
 int main()
 {
-	printf_s("Hello Cpp\n");
-	cout << "Hello CPP" << endl;
-	int iInput;    // 정수형
-	string sInput; // 문자열
-	char cInput;   // 문자형
-	//char cInput_arr[2];
-	double dInput; // 아주 큰 실수형
-	bool bInput;   // 논리형 True oi False
-	float fInput;  // 실수형
+	int iInput;
+	char cInput_arr[CHAR_INPUT_MAX];
+	string sInput;
+	float fInput;
+	double dInput;
+	bool bInput;
+	long double ldInput;
 
-	//cout << "Please input a character :";\
-	//cin.getline(cInput_arr, 10);
-	//cin.clear();
-	//cout << "cInput :" << cInput << endl;
-	//cout << "cInput_arr :" << cInput_arr << endl;
-
-    // int
-	cout << "Please input a int :";
+	// int
+	cout << "Please input your favorite number : ";
 	cin >> iInput;
-	cout << "iInput :" << iInput << endl;
+	cout << "iInput = " << iInput << endl;
+	cin.clear();
+	cin.ignore(INT_MAX, '\n');
+
+	// char_arr h e l l o w o r l d \0
+	cout << "Please input your favorite word :";
+	cin >> setw(11) >> cInput_arr;
+	cout << "cInput_arr = " << cInput_arr << endl;
+	cin.clear();
+	cin.ignore(CHAR_MAX, '\n');
 
 	// string
-	cout << "Please input a string :";
-	getline(cin, sInput); //Input one more
-    cout << "sInput :" << sInput << endl;
+	cout << "Please input your favorite string :";
+	getline(cin, sInput);
+	cout << "sInput = " << sInput << endl;
 
-	// bool
-	bInput = (1==2);
-	cout << "bool : " << bInput << endl;
-	
 	// float
-	cout << "Please input a float :";
+	cout << "Please input pi number :";
 	cin >> fInput;
-	cout.precision(6);
-	cout << "fInput : " << fixed << fInput << endl;
-	
+	cout << "fInput = " << fInput << endl;
+	cout << setprecision(16);
+	cin.clear();
+	cin.ignore(INT_MAX, '\n');
+	//cout << "INPUT_MAX = " << INT_MAX << endl;
+
 	// double
-	cout << "Please input a double :";
-	cout.precision(6);
+	cout << "Please input pi double number :";
 	cin >> dInput;
-	cout << "dInput : " << fixed << dInput << endl;
+	cout << "dInput = " << dInput << endl;
+
+	// long double
+	cout << "Please input pi long double number :";
+	cin >> ldInput;
+	cout << "ldInput = " << ldInput << endl;
+
 	return 0;
 }
